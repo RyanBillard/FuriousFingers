@@ -17,7 +17,7 @@ protocol DiscoveryServiceDelegate: class {
 
 class DiscoveryService: NSObject, MCBrowserViewControllerDelegate {
 	static let GameService = "fastfinger-game"
-	static let PeerID = MCPeerID(displayName: UIDevice.current.name)
+	static let PeerID = MCPeerID(displayName: UIDevice.current.identifierForVendor?.uuidString ?? "")
 
 	let browser: MCNearbyServiceBrowser
 	let browserViewController: MCBrowserViewController

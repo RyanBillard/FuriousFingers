@@ -136,7 +136,7 @@ class ViewController: UIViewController, DiscoveryServiceDelegate {
 	}
 
 	func discoveryService(_ service: DiscoveryService, didFinishWithSession session: MCSession) {
-		let gameVC = OverUnderViewController(withSession: session)
+		let gameVC = BombViewController(withSession: session)
 		present(gameVC, animated: true) {
 
 		}
