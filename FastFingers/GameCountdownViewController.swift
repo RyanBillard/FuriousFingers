@@ -51,6 +51,7 @@ class GameCountdownViewController: UIViewController, BroadcastServiceDelegate {
 			self.time -= 1
 			if self.time <= 0 {
 				timer.invalidate()
+				self.startGame()
 			}
 		})
 		timer.fire()
@@ -61,6 +62,20 @@ class GameCountdownViewController: UIViewController, BroadcastServiceDelegate {
 		let label = UILabel()
 		label.text = peer
 		usersList.addArrangedSubview(label)
+	}
+
+	func startGame() {
+		guard let broadcastService = broadcastService, broadcastService.session.connectedPeers.count > 1 else {
+			dismiss(animated: true, completion: { 
+
+			})
+			return
+		}
+		let gameVC = GameViewController(withSession: broadcastService.session)
+		present(gameVC, animated: true) { 
+			
+		}
+
 	}
 
 }

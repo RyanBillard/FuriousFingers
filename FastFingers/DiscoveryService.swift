@@ -10,7 +10,8 @@ import Foundation
 import MultipeerConnectivity
 
 protocol DiscoveryServiceDelegate: class {
-	func discoveryService(_ service: DiscoveryService, presentBrowserViewController controller: UIViewController) -> Void
+	func discoveryService(_ service: DiscoveryService, presentBrowserViewController controller: UIViewController)
+	func discoveryService(_ service: DiscoveryService, didFinishWithSession session: MCSession)
 }
 
 
@@ -46,7 +47,7 @@ class DiscoveryService: NSObject, MCBrowserViewControllerDelegate {
 	func browserViewControllerWasCancelled(_ browserViewController: MCBrowserViewController) {
 		browser.stopBrowsingForPeers()
 		browserViewController.dismiss(animated: true) { 
-
+			self.delegate?.discoveryService(self, didFinishWithSession: browserViewController.session)
 		}
 	}
 
