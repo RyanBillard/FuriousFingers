@@ -17,6 +17,7 @@ class ViewController: UIViewController, DiscoveryServiceDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         
+        
         let logoLabel = UILabel(frame: CGRect(x: 0, y: 80 , width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/5))
         
         logoLabel.text = "Furious Fingers"
@@ -65,6 +66,11 @@ class ViewController: UIViewController, DiscoveryServiceDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        let bomb = BombViewController()
+            present(bomb, animated: true) {
+        }
+
         
             // Check if nickname is in UserDefaults
             let defaults = UserDefaults.standard
