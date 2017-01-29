@@ -17,23 +17,50 @@ class ViewController: UIViewController, DiscoveryServiceDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
         
+        let logoLabel = UILabel(frame: CGRect(x: 0, y: 80 , width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/5))
         
-		createGameButton.backgroundColor = .green
-		createGameButton.setTitle("Create Game", for: .normal)
+        logoLabel.text = "Furious Fingers"
+        logoLabel.textColor = UIColor.black
+        logoLabel.font = UIFont(name: "AvenirNext-Medium", size: 45)
+        logoLabel.textAlignment = .center
+//        logoLabel.backgroundColor = UIColor.red
+        
+        let logoImg = UIImage(named: "hourglass")
+        let logoImgView = UIImageView(image: logoImg)
+        logoImgView.frame = CGRect(x: logoLabel.bounds.width/2 - 50, y: 120, width: 100, height: 100)
+        
+        logoLabel.addSubview(logoImgView)
+        self.view.addSubview(logoLabel)
+        
+		createGameButton.backgroundColor = UIColor.black
+        createGameButton.titleLabel?.textColor = UIColor.white
+        createGameButton.tintColor = UIColor.white
+        createGameButton.clipsToBounds = true
+        createGameButton.layer.cornerRadius = 10
+        createGameButton.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 20)
+        createGameButton.setTitle("Create Game", for: .normal)
 		createGameButton.addTarget(self, action: #selector(createGame), for: .touchUpInside)
-		joinGameButton.backgroundColor = .blue
+        
+        joinGameButton.backgroundColor = UIColor.black
+        joinGameButton.titleLabel?.textColor = UIColor.white
+        joinGameButton.tintColor = UIColor.white
+        joinGameButton.clipsToBounds = true
+        joinGameButton.layer.cornerRadius = 10
+        joinGameButton.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 20)
 		joinGameButton.setTitle("Join Game", for: .normal)
 		joinGameButton.addTarget(self, action: #selector(joinGame), for: .touchUpInside)
+        
 		let stackView = UIStackView(arrangedSubviews: [createGameButton, joinGameButton])
 		stackView.axis = .vertical
 		stackView.translatesAutoresizingMaskIntoConstraints = false
 		stackView.distribution = .fillEqually
+        stackView.spacing = 30
 		view.addSubview(stackView)
 		NSLayoutConstraint.activate([
-			stackView.topAnchor.constraint(equalTo: view.centerYAnchor),
-			stackView.leftAnchor.constraint(equalTo: view.leftAnchor),
-			stackView.rightAnchor.constraint(equalTo: view.rightAnchor),
-			stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            stackView.topAnchor.constraint(equalTo: view.centerYAnchor, constant: 75),
+            stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 55),
+            stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -55),
+            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -75)
 		])
 	}
     
