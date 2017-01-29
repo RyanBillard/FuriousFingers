@@ -12,6 +12,7 @@ class BombViewController: UIViewController {
     
     var location = CGPoint(x: 0, y:0)
     var bombView = UIImageView()
+    var ticker = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
     
 //    override func createInstructionView() -> InstructionView {
 //        return InstructionView(title: "Tick Tock", instructions: "Slide the bomb off your screen to give it to a friend. Dont't be the last one holding onto it when it goes off!", participants: session.connectedPeers.map({ $0.displayName }))
@@ -59,14 +60,28 @@ class BombViewController: UIViewController {
         title.font = UIFont(name: "AvenirNext-Medium", size: 30)
         title.textAlignment = .center
         
+        ticker.backgroundColor = UIColor(red:1.00, green:0.77, blue:0.54, alpha:1.0)
+        
+        
         let bombImg = UIImage(named: "bomb")
         let bombView = UIImageView(image: bombImg)
         
         self.bombView = bombView
+        
+        self.view.addSubview(ticker)
         self.view.addSubview(self.bombView)
         self.view.addSubview(title)
+
+        
         
         bombView.center = self.view.center
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        UIView.animate(withDuration: 5, delay: 0, options: .curveLinear, animations: {
+            self.ticker.center.y = UIScreen.main.bounds.height + self.ticker.frame.height / 2
+        }, completion: nil)
+    }
 }
