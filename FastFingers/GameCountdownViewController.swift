@@ -19,6 +19,7 @@ class GameCountdownViewController: UIViewController, BroadcastServiceDelegate {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        
 		view.backgroundColor = .white
 		broadcastService = BroadcastService()
 		broadcastService?.delegate = self
