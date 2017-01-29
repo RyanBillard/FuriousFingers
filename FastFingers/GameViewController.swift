@@ -77,7 +77,7 @@ class GameViewController: UIViewController, MCSessionDelegate {
 	}
 
 	func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-		if session.connectedPeers.count > 1 {
+		if broadcaster {
 			let destinations = session.connectedPeers.filter { $0 != peerID || $0 != DiscoveryService.PeerID }
 			send(data, to: destinations)
 		}
