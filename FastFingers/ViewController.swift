@@ -64,58 +64,58 @@ class ViewController: UIViewController, DiscoveryServiceDelegate {
 			])
 	}
 
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-
-		// Check if nickname is in UserDefaults
-		let defaults = UserDefaults.standard
-
-		if let name = defaults.string(forKey: "nickname") {
-			print(name)
-		}
-
-		else {
-			let alert = UIAlertController(title: "Name", message: "Please choose a nickname", preferredStyle: .alert)
-
-			alert.addTextField { (textField) in
-				textField.text = "Your name"
-			}
-
-			alert.addAction(UIAlertAction(title: "Go", style: .default, handler: { (action) in
-
-				// Add to db
-				var request = URLRequest(url: URL(string: "https://furiousfingers.herokuapp.com/users")!)
-				request.httpMethod = "POST"
-
-				let device_id = UIDevice.current.identifierForVendor!.uuidString
-				let nickname = alert.textFields![0]
-				let postString = "device_id=" + String(device_id)! + "&nickname=" + nickname.text!
-
-				request.httpBody = postString.data(using: .utf8)
-				let task = URLSession.shared.dataTask(with: request) { data, response, error in
-					guard let data = data, error == nil else {
-						print("error=\(error)")
-						return
-					}
-
-					if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {                         print("statusCode should be 200, but is \(httpStatus.statusCode)")
-						print("response = \(response)")
-					}
-
-					let responseString = String(data: data, encoding: .utf8)
-					print("responseString = \(responseString)")
-				}
-				task.resume()
-
-				// Set default
-				defaults.set(nickname.text, forKey: "nickname")
-
-
-			}))
-
-			self.present(alert, animated: true, completion: nil)
-		}
-	}
+//	override func viewDidAppear(_ animated: Bool) {
+//		super.viewDidAppear(animated)
+//
+//		// Check if nickname is in UserDefaults
+//		let defaults = UserDefaults.standard
+//
+//		if let name = defaults.string(forKey: "nickname") {
+//			print(name)
+//		}
+//
+//		else {
+//			let alert = UIAlertController(title: "Name", message: "Please choose a nickname", preferredStyle: .alert)
+//
+//			alert.addTextField { (textField) in
+//				textField.text = "Your name"
+//			}
+//
+//			alert.addAction(UIAlertAction(title: "Go", style: .default, handler: { (action) in
+//
+//				// Add to db
+//				var request = URLRequest(url: URL(string: "https://furiousfingers.herokuapp.com/users")!)
+//				request.httpMethod = "POST"
+//
+//				let device_id = UIDevice.current.identifierForVendor!.uuidString
+//				let nickname = alert.textFields![0]
+//				let postString = "device_id=" + String(device_id)! + "&nickname=" + nickname.text!
+//
+//				request.httpBody = postString.data(using: .utf8)
+//				let task = URLSession.shared.dataTask(with: request) { data, response, error in
+//					guard let data = data, error == nil else {
+//						print("error=\(error)")
+//						return
+//					}
+//
+//					if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {                         print("statusCode should be 200, but is \(httpStatus.statusCode)")
+//						print("response = \(response)")
+//					}
+//
+//					let responseString = String(data: data, encoding: .utf8)
+//					print("responseString = \(responseString)")
+//				}
+//				task.resume()
+//
+//				// Set default
+//				defaults.set(nickname.text, forKey: "nickname")
+//
+//
+//			}))
+//
+//			self.present(alert, animated: true, completion: nil)
+//		}
+//	}
 
 
 	dynamic private func joinGame() {

@@ -16,7 +16,7 @@ protocol BroadcastServiceDelegate: class {
 
 class BroadcastService: NSObject, MCNearbyServiceAdvertiserDelegate {
 	static let GameService = "fastfinger-game"
-	static let PeerID = MCPeerID(displayName: UIDevice.current.identifierForVendor?.uuidString ?? "")
+	static let PeerID = MCPeerID(displayName: UIDevice.current.name)
 	let advertiser: MCNearbyServiceAdvertiser
 	let session: MCSession
 	weak var delegate: BroadcastServiceDelegate?
