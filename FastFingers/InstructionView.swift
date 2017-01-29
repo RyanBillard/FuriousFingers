@@ -14,7 +14,7 @@ class InstructionView: UIView {
 	let instructionsLabel = UILabel()
 	let participantsLabel = UILabel()
 	let timerLabel = UILabel()
-	var time = 4.0 {
+	var time = 12.0 {
 		didSet {
 			timerLabel.text = "\(time)"
 		}

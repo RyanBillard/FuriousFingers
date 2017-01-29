@@ -109,20 +109,16 @@ class OverUnderViewController: GameViewController {
 		}
 	}
 
-	func recordWinner(_ peer: MCPeerID) {
+	func recordWinner(_ winner: MCPeerID) {
 		guard broadcaster else { return }
-		winners.append(peer)
-		if winners.count == session.connectedPeers.count {
-			guard let winner = winners.first else { return }
-			if winner == session.myPeerID {
-				won()
-			} else {
-				lost()
-				sendSingleMessage("won", to: winner)
-			}
-			for loser in session.connectedPeers.filter({ $0 != winner && $0 != session.myPeerID }) {
-				sendSingleMessage("lost", to: loser)
-			}
+		if winner == session.myPeerID {
+			won()
+		} else {
+			lost()
+			sendSingleMessage("won", to: winner)
+		}
+		for loser in session.connectedPeers.filter({ $0 != winner && $0 != session.myPeerID }) {
+			sendSingleMessage("lost", to: loser)
 		}
 	}
 

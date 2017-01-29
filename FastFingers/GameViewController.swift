@@ -100,7 +100,6 @@ class GameViewController: UIViewController, MCSessionDelegate {
 			resultView.leftAnchor.constraint(equalTo: view.leftAnchor),
 			resultView.rightAnchor.constraint(equalTo: view.rightAnchor)
 		])
-
 	}
 
 	func lost() {

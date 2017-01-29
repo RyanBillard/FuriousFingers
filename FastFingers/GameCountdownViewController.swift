@@ -14,7 +14,7 @@ class GameCountdownViewController: UIViewController, BroadcastServiceDelegate {
 	var broadcastService: BroadcastService?
 	let usersList = UIStackView()
 	let timerLabel = UILabel()
-	var time = 15.0
+	var time = 10
 
 
 	override func viewDidLoad() {
