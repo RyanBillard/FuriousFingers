@@ -17,6 +17,7 @@ class ViewController: UIViewController, DiscoveryServiceDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+        view.backgroundColor = UIColor.white
 
 		let logoLabel = UILabel(frame: CGRect(x: 0, y: 80 , width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height/5))
 

@@ -120,6 +120,35 @@ class OverUnderViewController: GameViewController {
 		for loser in session.connectedPeers.filter({ $0 != winner && $0 != session.myPeerID }) {
 			sendSingleMessage("lost", to: loser)
 		}
+        
+        ////
+//        var request = URLRequest(url: URL(string: "https://furiousfingers.herokuapp.com/games")!)
+//        request.httpMethod = "POST"
+//        
+//        let device_id = UIDevice.current.identifierForVendor!.uuidString
+//        let postString = "game_type=" + "\(self)" + "&players="
+//        
+//        print(postString)
+        
+//        request.httpBody = postString.data(using: .utf8)
+//        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+//            guard let data = data, error == nil else {
+//                print("error=\(error)")
+//                return
+//            }
+//            
+//            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {                         print("statusCode should be 200, but is \(httpStatus.statusCode)")
+//                print("response = \(response)")
+//            }
+//            
+//            let responseString = String(data: data, encoding: .utf8)
+//            print("responseString = \(responseString)")
+//        }
+//        task.resume()
+
+        
+        ////
+        
 	}
 
 	override func receive(_ message: String, from: MCPeerID) {
