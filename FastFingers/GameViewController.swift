@@ -44,14 +44,19 @@ class GameViewController: UIViewController, MCSessionDelegate {
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		if broadcaster {
-			send("start")
+			sendBroadcastMessage("start")
 			startInstructionTimer()
 		}
 	}
 
-	func send(_ message: String) {
+	func sendBroadcastMessage(_ message: String) {
 		guard let data = message.data(using: .ascii) else { return }
 		send(data, to: session.connectedPeers)
+	}
+
+	func sendSingleMessage(_ message: String, to peer: MCPeerID) {
+		guard let data = message.data(using: .ascii) else { return }
+		send(data, to: [peer])
 	}
 
 	func send(_ data: Data, to peers: [MCPeerID]) {
@@ -62,14 +67,64 @@ class GameViewController: UIViewController, MCSessionDelegate {
 		}
 	}
 
-	func receive(_ data: Data, from: MCPeerID) {
-		let message = parse(data)
+	func receive(_ message: String, from: MCPeerID) {
 		switch message {
 		case "start":
 			startInstructionTimer()
+		case "won":
+			won()
+		case "lost":
+			lost()
 		default:
 			break
 		}
+	}
+
+	func won() {
+		let resultView = UIView()
+		resultView.backgroundColor = UIColor.green.withAlphaComponent(0.75)
+		let label = UILabel()
+		label.text = "YOU WON!"
+		label.font = UIFont.systemFont(ofSize: 50)
+		label.textAlignment = .center
+		label.textColor = .white
+		resultView.addSubview(label)
+		resultView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(resultView)
+
+		NSLayoutConstraint.activate([
+			label.centerXAnchor.constraint(equalTo: resultView.centerXAnchor),
+			label.centerYAnchor.constraint(equalTo: resultView.centerYAnchor),
+			resultView.topAnchor.constraint(equalTo: view.topAnchor),
+			resultView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+			resultView.leftAnchor.constraint(equalTo: view.leftAnchor),
+			resultView.rightAnchor.constraint(equalTo: view.rightAnchor)
+		])
+
+	}
+
+	func lost() {
+		let resultView = UIView()
+		resultView.backgroundColor = UIColor.red.withAlphaComponent(0.75)
+		let label = UILabel()
+		label.text = "YOU LOST"
+		label.font = UIFont.systemFont(ofSize: 50)
+		label.textAlignment = .center
+		label.textColor = .white
+		resultView.addSubview(label)
+		resultView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(resultView)
+
+		NSLayoutConstraint.activate([
+			label.centerXAnchor.constraint(equalTo: resultView.centerXAnchor),
+			label.centerYAnchor.constraint(equalTo: resultView.centerYAnchor),
+			label.widthAnchor.constraint(equalTo: resultView.widthAnchor),
+			label.heightAnchor.constraint(equalToConstant: 150),
+			resultView.topAnchor.constraint(equalTo: view.topAnchor),
+			resultView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+			resultView.leftAnchor.constraint(equalTo: view.leftAnchor),
+			resultView.rightAnchor.constraint(equalTo: view.rightAnchor)
+			])
 	}
 
 	func parse(_ data: Data) -> String {
@@ -82,7 +137,7 @@ class GameViewController: UIViewController, MCSessionDelegate {
 			send(data, to: destinations)
 		}
 		DispatchQueue.main.async {
-			self.receive(data, from: peerID)
+			self.receive(self.parse(data), from: peerID)
 		}
 	}
 
