@@ -23,7 +23,6 @@ class ViewController: UIViewController, DiscoveryServiceDelegate {
         logoLabel.textColor = UIColor.black
         logoLabel.font = UIFont(name: "AvenirNext-Medium", size: 45)
         logoLabel.textAlignment = .center
-//        logoLabel.backgroundColor = UIColor.red
         
         let logoImg = UIImage(named: "hourglass")
         let logoImgView = UIImageView(image: logoImg)
