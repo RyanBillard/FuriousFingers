@@ -83,47 +83,44 @@ class GameViewController: UIViewController, MCSessionDelegate {
 	func won() {
 		let resultView = UIView()
 		resultView.backgroundColor = UIColor.green.withAlphaComponent(0.75)
-		let label = UILabel()
-		label.text = "YOU WON!"
-		label.font = UIFont.systemFont(ofSize: 50)
-		label.textAlignment = .center
-		label.textColor = .white
-		resultView.addSubview(label)
 		resultView.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(resultView)
 
 		NSLayoutConstraint.activate([
-			label.centerXAnchor.constraint(equalTo: resultView.centerXAnchor),
-			label.centerYAnchor.constraint(equalTo: resultView.centerYAnchor),
 			resultView.topAnchor.constraint(equalTo: view.topAnchor),
 			resultView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 			resultView.leftAnchor.constraint(equalTo: view.leftAnchor),
 			resultView.rightAnchor.constraint(equalTo: view.rightAnchor)
 		])
+        
+        let delayTime = DispatchTime.now() + Double(Int64(2 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: delayTime)
+        {
+            self.toMenu()
+        }
+
 	}
 
 	func lost() {
 		let resultView = UIView()
 		resultView.backgroundColor = UIColor.red.withAlphaComponent(0.75)
-		let label = UILabel()
-		label.text = "YOU LOST"
-		label.font = UIFont.systemFont(ofSize: 50)
-		label.textAlignment = .center
-		label.textColor = .white
-		resultView.addSubview(label)
 		resultView.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(resultView)
 
 		NSLayoutConstraint.activate([
-			label.centerXAnchor.constraint(equalTo: resultView.centerXAnchor),
-			label.centerYAnchor.constraint(equalTo: resultView.centerYAnchor),
-			label.widthAnchor.constraint(equalTo: resultView.widthAnchor),
-			label.heightAnchor.constraint(equalToConstant: 150),
 			resultView.topAnchor.constraint(equalTo: view.topAnchor),
 			resultView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 			resultView.leftAnchor.constraint(equalTo: view.leftAnchor),
 			resultView.rightAnchor.constraint(equalTo: view.rightAnchor)
 			])
+        
+        let delayTime = DispatchTime.now() + Double(Int64(2 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: delayTime)
+        {
+            self.toMenu()
+        }
+
+        
 	}
 
 	func parse(_ data: Data) -> String {
@@ -185,4 +182,11 @@ class GameViewController: UIViewController, MCSessionDelegate {
 	func startGame() {
 
 	}
+    
+    func toMenu() {
+        let menuVC = ViewController()
+        present(menuVC, animated: true) {
+            
+        }
+    }
 }
