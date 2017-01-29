@@ -25,11 +25,21 @@ class InstructionView: UIView {
 		backgroundColor = .white
 		titleLabel.text = title
 		titleLabel.numberOfLines = 0
+        titleLabel.font = UIFont(name: "AvenirNext-Medium", size: 40)
+        
+        let logoImg = UIImage(named: "faq")
+        let logoImgView = UIImageView(image: logoImg)
+        logoImgView.frame = CGRect(x: UIScreen.main.bounds.width/2 - 50, y: 120, width: 70, height: 70)
+        logoImgView.contentMode = .scaleAspectFit
+
+        
 		instructionsLabel.text = instructions
 		instructionsLabel.numberOfLines = 0
+        
 		participantsLabel.text = participants.joined(separator: "\n")
 		participantsLabel.textAlignment = .left
 		participantsLabel.numberOfLines = 0
+        
 		timerLabel.text = "\(time)"
 		timerLabel.textAlignment = .right
 
@@ -38,7 +48,7 @@ class InstructionView: UIView {
 		bottomStack.alignment = .bottom
 		bottomStack.distribution = .fill
 
-		let mainStack = UIStackView(arrangedSubviews: [UIView(), titleLabel, instructionsLabel, bottomStack])
+		let mainStack = UIStackView(arrangedSubviews: [UIView(), titleLabel, logoImgView, instructionsLabel, bottomStack])
 		mainStack.axis = .vertical
 		mainStack.distribution = UIStackViewDistribution.fillProportionally
 		mainStack.alignment = .center
@@ -47,10 +57,10 @@ class InstructionView: UIView {
 		addSubview(mainStack)
 
 		NSLayoutConstraint.activate([
-			mainStack.topAnchor.constraint(equalTo: topAnchor),
+            mainStack.topAnchor.constraint(equalTo: topAnchor, constant: 40),
 			mainStack.bottomAnchor.constraint(equalTo: bottomAnchor),
-			mainStack.leadingAnchor.constraint(equalTo: leadingAnchor),
-			mainStack.trailingAnchor.constraint(equalTo: trailingAnchor)
+			mainStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
+			mainStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40)
 		])
 	}
 
