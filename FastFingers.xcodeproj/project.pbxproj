@@ -21,6 +21,7 @@
 		20F716BA1E3DCDF2003E3153 /* OverUnderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F716B91E3DCDF2003E3153 /* OverUnderViewController.swift */; };
 		20F716BC1E3DCE9B003E3153 /* InstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F716BB1E3DCE9B003E3153 /* InstructionView.swift */; };
 		20F716BE1E3E04B5003E3153 /* OverUnderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F716BD1E3E04B5003E3153 /* OverUnderView.swift */; };
+		9B5F321D1E3E15BF00F16596 /* BombViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F321C1E3E15BF00F16596 /* BombViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		20F716B91E3DCDF2003E3153 /* OverUnderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverUnderViewController.swift; sourceTree = "<group>"; };
 		20F716BB1E3DCE9B003E3153 /* InstructionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionView.swift; sourceTree = "<group>"; };
 		20F716BD1E3E04B5003E3153 /* OverUnderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverUnderView.swift; sourceTree = "<group>"; };
+		9B5F321C1E3E15BF00F16596 /* BombViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BombViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				20F716B91E3DCDF2003E3153 /* OverUnderViewController.swift */,
 				20F716BB1E3DCE9B003E3153 /* InstructionView.swift */,
 				20F716BD1E3E04B5003E3153 /* OverUnderView.swift */,
+				9B5F321C1E3E15BF00F16596 /* BombViewController.swift */,
 			);
 			path = FastFingers;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				20F716861E3DA74B003E3153 /* ViewController.swift in Sources */,
 				20F716BE1E3E04B5003E3153 /* OverUnderView.swift in Sources */,
 				20F716BA1E3DCDF2003E3153 /* OverUnderViewController.swift in Sources */,
+				9B5F321D1E3E15BF00F16596 /* BombViewController.swift in Sources */,
 				20F716B61E3DB72B003E3153 /* GameCountdownViewController.swift in Sources */,
 				20F716B21E3DA75D003E3153 /* BroadcastService.swift in Sources */,
 				20F716B41E3DAAE9003E3153 /* DiscoveryService.swift in Sources */,
