@@ -16,6 +16,21 @@ class ViewController: UIViewController, DiscoveryServiceDelegate {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        
+        let alert = UIAlertController(title: "Skin Type", message: "Please Choose Skin Type", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Fair Skin", style: .default, handler: { (action) in
+            //execute some code when this option is selected
+            print("Fair Skin")
+        }))
+        alert.addAction(UIAlertAction(title: "Dark Skin", style: .default, handler: { (action) in
+            //execute some code when this option is selected
+            print("Dark Skin")
+        }))
+        
+        
+        present(alert, animated: true, completion: nil)
+        
 		createGameButton.backgroundColor = .green
 		createGameButton.setTitle("Create Game", for: .normal)
 		createGameButton.addTarget(self, action: #selector(createGame), for: .touchUpInside)
