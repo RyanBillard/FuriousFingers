@@ -23,7 +23,7 @@ class BroadcastService: NSObject, MCNearbyServiceAdvertiserDelegate {
 
 	override init() {
 		advertiser = MCNearbyServiceAdvertiser(peer: BroadcastService.PeerID, discoveryInfo: nil, serviceType: BroadcastService.GameService)
-		session = MCSession(peer: BroadcastService.PeerID)
+		session = MCSession(peer: BroadcastService.PeerID, securityIdentity: nil, encryptionPreference: .none)
 		super.init()
 		advertiser.delegate = self
 		advertiser.startAdvertisingPeer()

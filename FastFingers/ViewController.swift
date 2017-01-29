@@ -53,7 +53,7 @@ class ViewController: UIViewController, DiscoveryServiceDelegate {
 	}
 
 	func discoveryService(_ service: DiscoveryService, didFinishWithSession session: MCSession) {
-		let gameVC = GameViewController(withSession: session)
+		let gameVC = OverUnderViewController(withSession: session)
 		present(gameVC, animated: true) { 
 			
 		}

@@ -27,7 +27,7 @@ class DiscoveryService: NSObject, MCBrowserViewControllerDelegate {
 	init(delegate: DiscoveryServiceDelegate) {
 		self.delegate = delegate
 		browser = MCNearbyServiceBrowser(peer: DiscoveryService.PeerID, serviceType: DiscoveryService.GameService)
-		browserViewController = MCBrowserViewController(browser: browser, session: MCSession(peer: DiscoveryService.PeerID))
+		browserViewController = MCBrowserViewController(browser: browser, session: MCSession(peer: DiscoveryService.PeerID, securityIdentity: nil, encryptionPreference: .none))
 		super.init()
 		browserViewController.delegate = self
 		browserViewController.minimumNumberOfPeers = 1
@@ -38,16 +38,13 @@ class DiscoveryService: NSObject, MCBrowserViewControllerDelegate {
 
 	func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
 		print(browserViewController.session.connectedPeers)
-		browser.stopBrowsingForPeers()
 		browserViewController.dismiss(animated: true) {
-
+			self.delegate?.discoveryService(self, didFinishWithSession: browserViewController.session)
 		}
 	}
 
 	func browserViewControllerWasCancelled(_ browserViewController: MCBrowserViewController) {
-		browser.stopBrowsingForPeers()
-		browserViewController.dismiss(animated: true) { 
-			self.delegate?.discoveryService(self, didFinishWithSession: browserViewController.session)
+		browserViewController.dismiss(animated: true) {
 		}
 	}
 

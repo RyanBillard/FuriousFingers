@@ -65,17 +65,11 @@ class GameCountdownViewController: UIViewController, BroadcastServiceDelegate {
 	}
 
 	func startGame() {
-		guard let broadcastService = broadcastService, broadcastService.session.connectedPeers.count > 1 else {
-			dismiss(animated: true, completion: { 
+		guard let broadcastService = self.broadcastService, broadcastService.session.connectedPeers.count >= 1 else { return }
+		let gameVC = OverUnderViewController(withSession: broadcastService.session, broadcaster: true)
+		self.present(gameVC, animated: true) {
 
-			})
-			return
 		}
-		let gameVC = GameViewController(withSession: broadcastService.session)
-		present(gameVC, animated: true) { 
-			
-		}
-
 	}
 
 }

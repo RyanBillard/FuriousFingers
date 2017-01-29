@@ -18,6 +18,8 @@
 		20F716B41E3DAAE9003E3153 /* DiscoveryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F716B31E3DAAE9003E3153 /* DiscoveryService.swift */; };
 		20F716B61E3DB72B003E3153 /* GameCountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F716B51E3DB72B003E3153 /* GameCountdownViewController.swift */; };
 		20F716B81E3DBF9C003E3153 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F716B71E3DBF9C003E3153 /* GameViewController.swift */; };
+		20F716BA1E3DCDF2003E3153 /* OverUnderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F716B91E3DCDF2003E3153 /* OverUnderViewController.swift */; };
+		20F716BC1E3DCE9B003E3153 /* InstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F716BB1E3DCE9B003E3153 /* InstructionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		20F716B31E3DAAE9003E3153 /* DiscoveryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryService.swift; sourceTree = "<group>"; };
 		20F716B51E3DB72B003E3153 /* GameCountdownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCountdownViewController.swift; sourceTree = "<group>"; };
 		20F716B71E3DBF9C003E3153 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		20F716B91E3DCDF2003E3153 /* OverUnderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverUnderViewController.swift; sourceTree = "<group>"; };
+		20F716BB1E3DCE9B003E3153 /* InstructionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,8 @@
 				20F716B31E3DAAE9003E3153 /* DiscoveryService.swift */,
 				20F716B51E3DB72B003E3153 /* GameCountdownViewController.swift */,
 				20F716B71E3DBF9C003E3153 /* GameViewController.swift */,
+				20F716B91E3DCDF2003E3153 /* OverUnderViewController.swift */,
+				20F716BB1E3DCE9B003E3153 /* InstructionView.swift */,
 			);
 			path = FastFingers;
 			sourceTree = "<group>";
@@ -275,9 +281,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				20F716861E3DA74B003E3153 /* ViewController.swift in Sources */,
+				20F716BA1E3DCDF2003E3153 /* OverUnderViewController.swift in Sources */,
 				20F716B61E3DB72B003E3153 /* GameCountdownViewController.swift in Sources */,
 				20F716B21E3DA75D003E3153 /* BroadcastService.swift in Sources */,
 				20F716B41E3DAAE9003E3153 /* DiscoveryService.swift in Sources */,
+				20F716BC1E3DCE9B003E3153 /* InstructionView.swift in Sources */,
 				20F716B81E3DBF9C003E3153 /* GameViewController.swift in Sources */,
 				20F716841E3DA74B003E3153 /* AppDelegate.swift in Sources */,
 			);
