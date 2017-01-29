@@ -42,6 +42,7 @@ class InstructionView: UIView {
         
 		timerLabel.text = "\(time)"
 		timerLabel.textAlignment = .right
+		timerLabel.font = UIFont(name: "AvenirNext-Medium", size: 20)
 
 		let bottomStack = UIStackView(arrangedSubviews: [participantsLabel, timerLabel])
 		bottomStack.axis = .horizontal

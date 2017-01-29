@@ -184,9 +184,16 @@ class GameViewController: UIViewController, MCSessionDelegate {
 	}
     
     func toMenu() {
-        let menuVC = ViewController()
-        present(menuVC, animated: true) {
-            
-        }
+		if self is OverUnderViewController {
+			let bomb = BombViewController(withSession: session, broadcaster: broadcaster)
+			present(bomb, animated: true, completion: { 
+			})
+		} else {
+			session.disconnect()
+			let menuVC = ViewController()
+			present(menuVC, animated: true) {
+
+			}
+		}
     }
 }

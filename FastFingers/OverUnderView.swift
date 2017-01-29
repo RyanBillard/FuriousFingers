@@ -35,9 +35,13 @@ class OverUnderView: UIView {
 		}
 
 		lowerButton.setTitle("LOWER", for: .normal)
-		lowerButton.setTitleColor(.black, for: .normal)
+		lowerButton.setTitleColor(.white, for: .normal)
+		lowerButton.backgroundColor = UIColor(red:0.95, green:0.51, blue:0.51, alpha:1.0)
+		lowerButton.layer.cornerRadius = 4
 		higherButton.setTitle("HIGHER", for: .normal)
-		higherButton.setTitleColor(.black, for: .normal)
+		higherButton.setTitleColor(.white, for: .normal)
+		higherButton.backgroundColor = UIColor(red:0.40, green:0.87, blue:0.95, alpha:1.0)
+		higherButton.layer.cornerRadius = 4
 
 		let buttonStack = UIStackView(arrangedSubviews: [lowerButton, higherButton])
 		buttonStack.axis = .horizontal
@@ -57,6 +61,8 @@ class OverUnderView: UIView {
 		addSubview(mainStack)
 
 		NSLayoutConstraint.activate([
+			higherButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 150),
+			lowerButton.widthAnchor.constraint(greaterThanOrEqualToConstant: 150),
 			mainStack.topAnchor.constraint(equalTo: topAnchor),
 			mainStack.bottomAnchor.constraint(equalTo: bottomAnchor),
 			mainStack.leftAnchor.constraint(equalTo: leftAnchor),

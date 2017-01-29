@@ -30,6 +30,9 @@ class GameCountdownViewController: UIViewController, BroadcastServiceDelegate {
 		usersList.distribution = .equalSpacing
 		usersList.alignment = .center
 
+		timerLabel.font = UIFont(name: "AvenirNext-Medium", size: 20)
+
+
 		let stackView = UIStackView(arrangedSubviews: [timerLabel, usersList])
 		stackView.axis = .vertical
 		stackView.alignment = .center
@@ -67,7 +70,7 @@ class GameCountdownViewController: UIViewController, BroadcastServiceDelegate {
 
 	func startGame() {
 		guard let broadcastService = self.broadcastService, broadcastService.session.connectedPeers.count >= 1 else { return }
-		let gameVC = BombViewController(withSession: broadcastService.session, broadcaster: true)
+		let gameVC = OverUnderViewController(withSession: broadcastService.session, broadcaster: true)
 		self.present(gameVC, animated: true) {
 
 		}
